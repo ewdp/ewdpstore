@@ -475,7 +475,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
         <a href="mailto:elvin@ewdp.co.za" class="btn-outline">Contact sales</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-value">26<em>+</em></div><div class="stat-label">Products in stock</div></div>
+        <div><div class="stat-value">20<em>+</em></div><div class="stat-label">Products in stock</div></div>
         <div><div class="stat-value">5<em>+</em></div><div class="stat-label">Premium brands</div></div>
         <div><div class="stat-value"><em>ZAR</em></div><div class="stat-label">Prices incl. VAT</div></div>
       </div>
@@ -508,9 +508,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
           <button class="filter-btn active" data-cat="all">All Products</button>
           <button class="filter-btn" data-cat="power">UPS & Power Stations</button>
           <button class="filter-btn" data-cat="ev">EV Chargers</button>
-          <button class="filter-btn" data-cat="smart">Smart Energy</button>
           <button class="filter-btn" data-cat="battery">Battery Chargers</button>
-          <button class="filter-btn" data-cat="dc">DC Accessories</button>
         </div>
       </div>
     </div>
@@ -551,9 +549,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
         <ul class="footer-links">
           <li><a href="#catalog">UPS & Power Stations</a></li>
           <li><a href="#catalog">EV Chargers</a></li>
-          <li><a href="#catalog">Smart Energy Controllers</a></li>
           <li><a href="#catalog">Battery Chargers</a></li>
-          <li><a href="#catalog">DC Converters</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -660,22 +656,14 @@ const PRODUCTS = [
   {id:'EV-22S',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Socket)',               sku:'SIGEN-22KW-SKT',  price:16834.50, img:'https://buzz.energy/cdn/shop/files/SigenergyUntetheredEVCharger_ChargingCableAndPlugHolder_686x686.jpg?v=1758869038'},
   {id:'EV-DC12',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',         sku:'SIGEN-DC12KW',    price:44776.00, img:'https://www.solartopstore.com/cdn/shop/files/Sigenergy-Sigen-EV-DC-Charging-Module-12kW_740x.jpg?v=1786099350'},
   {id:'EV-DC25',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',         sku:'SIGEN-DC25KW',    price:61915.00, img:'https://www.solartopstore.com/cdn/shop/files/Sigenergy-Sigen-EV-DC-Charging-Module-12kW_740x.jpg?v=1786099350'},
-  {id:'HBOT-12',    cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
-  {id:'SE-HWC',     cat:'smart',   name:'SolarEdge Home Hot Water Controller',             sku:'SE-HWC',          price:2900.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
   {id:'VIC-IP65-7', cat:'battery', name:'Victron Blue Smart IP65 12V 7A Charger',        sku:'VIC-IP65-12-7A',  price:1925.60,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
   {id:'VIC-IP22-15',cat:'battery', name:'Victron Blue Smart IP22 12V 15A Charger',       sku:'VIC-IP22-12-15A', price:2399.75,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
   {id:'VIC-IP65-25',cat:'battery', name:'Victron Blue Smart IP65 12V 25A Charger',       sku:'VIC-IP65-12-25A', price:3271.20,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
   {id:'VIC-IP65-24',cat:'battery', name:'Victron Blue Smart IP65 24V 8A Charger',        sku:'VIC-IP65-24-8A',  price:2382.35,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
   {id:'VIC-IP22-24',cat:'battery', name:'Victron Blue Smart IP22 24V 16A Charger',       sku:'VIC-IP22-24-16A', price:3030.50,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-24-20',  cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',  sku:'ORI-24-12-20',    price:793.15,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-12-18',  cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',   sku:'ORI-12-12-18',    price:2341.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-SM-30',  cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger', sku:'ORI-SMART-30',    price:4699.45,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-702',    cat:'dc',      name:'Victron Battery Monitor BMV-702',               sku:'BMV-702',         price:2718.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-712',    cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',         sku:'BMV-712',         price:2740.50,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BAL-01',     cat:'dc',      name:'Victron Battery Balancer',                       sku:'VIC-BAL',         price:916.40,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
 ];
 
-const CAT_LABELS={power:'UPS & Power Stations',ev:'EV Chargers',smart:'Smart Energy',battery:'Battery Chargers',dc:'DC Accessories'};
+const CAT_LABELS={power:'UPS & Power Stations',ev:'EV Chargers',battery:'Battery Chargers'};
 
 let cart={}, currentCat='all', searchQuery='';
 
