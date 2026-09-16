@@ -30,216 +30,83 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;width:100%}
-
-/* ── NAV ── */
-nav{
-  position:sticky;top:0;left:0;width:100%;z-index:999;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--grey-light);
-  box-shadow:var(--shadow);
-}
-.nav-inner{
-  max-width:1280px;width:100%;margin:0 auto;height:68px;
-  padding:0 var(--container-pad);
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  position:relative;
-}
+nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--grey-light);box-shadow:var(--shadow);}
+.nav-inner{max-width:1280px;width:100%;margin:0 auto;height:68px;padding:0 var(--container-pad);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .nav-logo-img{width:36px;height:36px;flex-shrink:0}
-.nav-logo-text{
-  font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.95rem;
-  letter-spacing:.02em;color:var(--navy);white-space:nowrap;
-}
+.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.95rem;letter-spacing:.02em;color:var(--navy);white-space:nowrap;}
 .nav-logo-text span{color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:clamp(10px,1.5vw,22px);list-style:none;flex:1;justify-content:flex-end}
 .nav-links a{font-size:.82rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--gold)}
-.cart-btn{
-  background:var(--gold);color:#fff;border:none;
-  padding:9px 18px;border-radius:50px;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;
-  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
-  transition:background .2s,transform .15s;min-height:42px;
-  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;
-}
+.cart-btn{background:var(--gold);color:#fff;border:none;padding:9px 18px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;min-height:42px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;}
 .cart-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
-.cart-badge{
-  background:rgba(255,255,255,.25);border-radius:20px;
-  font-size:11px;font-weight:700;padding:2px 7px;min-width:20px;text-align:center;
-  display:none;
-}
+.cart-badge{background:rgba(255,255,255,.25);border-radius:20px;font-size:11px;font-weight:700;padding:2px 7px;min-width:20px;text-align:center;display:none;}
 .cart-badge.visible{display:inline-block}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:8px;min-height:44px;min-width:44px;flex-shrink:0}
 .hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
-
-/* ── HERO ── */
-.hero{
-  background:var(--navy);padding:clamp(3rem,6vw,5rem) var(--container-pad);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 55% 60% at 80% 40%,rgba(200,146,42,.12) 0%,transparent 70%);
-  pointer-events:none;
-}
+.hero{background:var(--navy);padding:clamp(3rem,6vw,5rem) var(--container-pad);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 80% 40%,rgba(200,146,42,.12) 0%,transparent 70%);pointer-events:none;}
 .hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;position:relative;z-index:1}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);
-  color:var(--gold-light);font-size:.72rem;font-weight:700;
-  padding:5px 14px;border-radius:50px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase;
-}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);color:var(--gold-light);font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase;}
 .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
-.hero h1{
-  font-family:'Montserrat',sans-serif;font-weight:900;
-  font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;
-  color:#fff;margin-bottom:20px;letter-spacing:-.02em;
-}
+.hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;color:#fff;margin-bottom:20px;letter-spacing:-.02em;}
 .hero h1 em{color:var(--gold);font-style:normal}
 .hero-sub{font-size:clamp(.9rem,1.1vw,1rem);line-height:1.75;color:rgba(255,255,255,.75);max-width:500px;margin-bottom:32px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn-primary{
-  background:var(--gold);color:#fff;padding:13px 30px;border-radius:50px;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:none;cursor:pointer;
-  transition:background .2s,transform .15s,box-shadow .2s;
-  box-shadow:0 4px 20px rgba(200,146,42,.35);
-  min-height:46px;display:inline-flex;align-items:center;justify-content:center;
-}
+.btn-primary{background:var(--gold);color:#fff;padding:13px 30px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:46px;display:inline-flex;align-items:center;justify-content:center;}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
-.btn-outline{
-  background:transparent;color:#fff;padding:12px 28px;border-radius:50px;
-  border:2px solid rgba(255,255,255,.5);
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;cursor:pointer;transition:.2s;
-  min-height:46px;display:inline-flex;align-items:center;justify-content:center;
-}
+.btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:50px;border:2px solid rgba(255,255,255,.5);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.2s;min-height:46px;display:inline-flex;align-items:center;justify-content:center;}
 .btn-outline:hover{background:#fff;color:var(--navy)}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
 .stat-value{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.2vw,1.7rem);color:#fff;line-height:1}
 .stat-value em{color:var(--gold);font-style:normal}
 .stat-label{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
-
-/* Hero Media Block */
-.hero-media{
-  position:relative;
-  width:100%;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,0.4);
-  border:1px solid rgba(200,146,42,.3);
-}
-.hero-img{
-  width:100%;
-  height:100%;
-  min-height:360px;
-  max-height:480px;
-  object-fit:cover;
-  display:block;
-}
-.hero-media-badge{
-  position:absolute;
-  bottom:20px;
-  left:20px;
-  right:20px;
-  background:rgba(10,22,40,.85);
-  backdrop-filter:blur(10px);
-  padding:16px 20px;
-  border-radius:12px;
-  border:1px solid rgba(200,146,42,.3);
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
+.hero-media{position:relative;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.4);border:1px solid rgba(200,146,42,.3);}
+.hero-img{width:100%;height:100%;min-height:360px;max-height:480px;object-fit:cover;display:block;}
+.hero-media-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(10,22,40,.85);backdrop-filter:blur(10px);padding:16px 20px;border-radius:12px;border:1px solid rgba(200,146,42,.3);display:flex;align-items:center;gap:14px;}
 .hero-media-badge-icon{font-size:24px;flex-shrink:0}
 .hero-media-badge-title{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem}
 .hero-media-badge-sub{color:rgba(255,255,255,.7);font-size:.75rem;margin-top:2px}
-
-/* ── CATALOG ── */
 .catalog{padding:var(--section-pad) var(--container-pad);background:var(--off-white)}
 .container{max-width:1280px;margin:0 auto;width:100%}
 .section-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;color:var(--navy);letter-spacing:-.02em}
 .section-title em{color:var(--gold);font-style:normal}
 .section-sub{font-size:.95rem;color:var(--grey);line-height:1.7;max-width:560px;margin-top:12px}
-
-/* Controls */
 .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:32px 0 24px}
 .search-wrap{position:relative;flex:1;min-width:220px}
 .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--grey);pointer-events:none}
-#search{
-  width:100%;background:#fff;border:1.5px solid var(--grey-light);
-  color:var(--text);padding:11px 14px 11px 42px;border-radius:10px;
-  font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;
-}
+#search{width:100%;background:#fff;border:1.5px solid var(--grey-light);color:var(--text);padding:11px 14px 11px 42px;border-radius:10px;font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;}
 #search:focus{border-color:var(--gold)}
 #search::placeholder{color:var(--grey)}
 .filters{display:flex;gap:8px;flex-wrap:wrap}
-.filter-btn{
-  background:#fff;border:1.5px solid var(--grey-light);
-  color:var(--grey);padding:9px 16px;border-radius:50px;
-  cursor:pointer;font-size:.78rem;font-weight:600;letter-spacing:.02em;
-  transition:.2s;white-space:nowrap;font-family:'Inter',sans-serif;
-}
+.filter-btn{background:#fff;border:1.5px solid var(--grey-light);color:var(--grey);padding:9px 16px;border-radius:50px;cursor:pointer;font-size:.78rem;font-weight:600;letter-spacing:.02em;transition:.2s;white-space:nowrap;font-family:'Inter',sans-serif;}
 .filter-btn:hover{border-color:var(--gold);color:var(--gold)}
 .filter-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
-
-/* Product Grid */
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.product-card{
-  background:#fff;border-radius:20px;overflow:hidden;
-  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
-  display:flex;flex-direction:column;cursor:pointer;
-}
+.product-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;cursor:pointer;}
 .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
 .product-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--off-white);display:block;flex-shrink:0}
-.product-img-placeholder{
-  width:100%;aspect-ratio:4/3;
-  background:linear-gradient(135deg,#f0f2f5,#e5e7eb);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--grey);flex-shrink:0;
-}
+.product-img-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#f0f2f5,#e5e7eb);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--grey);flex-shrink:0;}
 .product-img-placeholder span{font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .product-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column}
-.product-cat{
-  font-size:.68rem;font-weight:700;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;
-}
+.product-cat{font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
 .product-name{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px}
 .product-sku{font-size:.72rem;color:var(--grey);margin-bottom:16px}
 .product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
 .product-price{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;color:var(--navy)}
 .product-price span{font-size:.8rem;font-weight:400;color:var(--grey)}
-.add-btn{
-  background:var(--gold);border:none;color:#fff;
-  width:40px;height:40px;border-radius:50%;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:.2s;flex-shrink:0;box-shadow:0 4px 12px rgba(200,146,42,.35);
-}
+.add-btn{background:var(--gold);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0;box-shadow:0 4px 12px rgba(200,146,42,.35);}
 .add-btn:hover{background:var(--gold-light);transform:scale(1.1)}
 .no-results{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--grey)}
-
-/* ── CART DRAWER ── */
-#cart-overlay{
-  position:fixed;inset:0;background:rgba(10,22,40,.55);backdrop-filter:blur(4px);
-  z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;
-}
+#cart-overlay{position:fixed;inset:0;background:rgba(10,22,40,.55);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;}
 #cart-overlay.open{opacity:1;pointer-events:all}
-#cart-drawer{
-  position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);
-  background:#fff;border-left:1px solid var(--grey-light);
-  z-index:201;display:flex;flex-direction:column;
-  transform:translateX(100%);
-  transition:transform .28s cubic-bezier(.4,0,.2,1);
-  box-shadow:-8px 0 40px rgba(10,22,40,.14);
-}
+#cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#fff;border-left:1px solid var(--grey-light);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(10,22,40,.14);}
 #cart-drawer.open{transform:translateX(0)}
 .cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--grey-light);flex-shrink:0}
 .cart-header h3{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy)}
-.close-btn{
-  background:var(--off-white);border:1px solid var(--grey-light);color:var(--grey);
-  width:34px;height:34px;border-radius:8px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;transition:.2s;
-}
+.close-btn{background:var(--off-white);border:1px solid var(--grey-light);color:var(--grey);width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
 .close-btn:hover{border-color:#ef4444;color:#ef4444}
 .cart-items{flex:1;overflow-y:auto;padding:14px 24px}
 .cart-empty{text-align:center;padding:60px 0;color:var(--grey)}
@@ -252,42 +119,22 @@ nav{
 .cart-item-info{min-width:0}
 .cart-item-name{font-size:.8rem;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:8px;font-family:'Montserrat',sans-serif}
 .cart-qty{display:flex;align-items:center;gap:8px}
-.qty-btn{
-  width:28px;height:28px;background:var(--off-white);border:1.5px solid var(--grey-light);
-  color:var(--navy);border-radius:6px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;
-}
+.qty-btn{width:28px;height:28px;background:var(--off-white);border:1.5px solid var(--grey-light);color:var(--navy);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;}
 .qty-btn:hover{border-color:var(--gold);color:var(--gold)}
 .qty-num{font-size:.875rem;font-weight:700;color:var(--navy);min-width:20px;text-align:center}
 .cart-item-total{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:800;color:var(--navy);white-space:nowrap}
-.remove-item{font-size:.72rem;color:var(--grey);cursor:pointer;margin-top:4px;display:block;transition:.2s}
+.remove-item{font-size:.72rem;color:var(--grey);cursor:pointer;margin-top:4px;display:block;transition:.2s;}
 .remove-item:hover{color:#ef4444}
 .cart-footer{padding:20px 24px;border-top:1px solid var(--grey-light);flex-shrink:0}
 .cart-totals{margin-bottom:18px}
 .cart-totals-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.85rem;color:var(--grey)}
 .cart-totals-row.grand{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy);border-top:1px solid var(--grey-light);padding-top:12px;margin-top:8px}
-.checkout-btn{
-  width:100%;justify-content:center;padding:14px;font-size:.875rem;border-radius:10px;
-  background:var(--gold);color:#fff;border:none;cursor:pointer;
-  font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;gap:8px;
-}
+.checkout-btn{width:100%;justify-content:center;padding:14px;font-size:.875rem;border-radius:10px;background:var(--gold);color:#fff;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;gap:8px;}
 .checkout-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
-
-/* ── CHECKOUT MODAL ── */
-#checkout-overlay{
-  position:fixed;inset:0;background:rgba(10,22,40,.65);backdrop-filter:blur(6px);
-  z-index:300;display:none;align-items:center;justify-content:center;padding:20px;
-}
+#checkout-overlay{position:fixed;inset:0;background:rgba(10,22,40,.65);backdrop-filter:blur(6px);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
 #checkout-overlay.open{display:flex}
-.checkout-modal{
-  background:#fff;border-radius:20px;width:100%;max-width:480px;
-  max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);
-}
-.checkout-modal-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:24px 28px;border-bottom:1px solid var(--grey-light);
-}
+.checkout-modal{background:#fff;border-radius:20px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);}
+.checkout-modal-head{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;border-bottom:1px solid var(--grey-light);}
 .checkout-modal-head h3{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy)}
 .checkout-body{padding:24px 28px}
 .checkout-summary{background:var(--off-white);border-radius:12px;padding:16px;margin-bottom:24px}
@@ -296,54 +143,27 @@ nav{
 .checkout-summary-total{display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;color:var(--navy);border-top:1px solid var(--grey-light);padding-top:10px;margin-top:8px}
 .form-group{margin-bottom:18px}
 .form-label{display:block;font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
-.form-input,.form-textarea{
-  width:100%;background:#fff;border:1.5px solid var(--grey-light);
-  color:var(--text);padding:11px 14px;border-radius:10px;
-  font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;resize:vertical;
-}
+.form-input,.form-textarea{width:100%;background:#fff;border:1.5px solid var(--grey-light);color:var(--text);padding:11px 14px;border-radius:10px;font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;resize:vertical;}
 .form-input:focus,.form-textarea:focus{border-color:var(--gold)}
 .form-input::placeholder,.form-textarea::placeholder{color:var(--grey)}
 .form-error{color:#ef4444;font-size:.72rem;margin-top:5px;display:none}
-.pay-btn{
-  width:100%;padding:14px;font-size:.875rem;border-radius:10px;margin-top:6px;
-  background:var(--gold);color:#fff;border:none;cursor:pointer;
-  font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;
-}
+.pay-btn{width:100%;padding:14px;font-size:.875rem;border-radius:10px;margin-top:6px;background:var(--gold);color:#fff;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;}
 .pay-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
-
-/* ── SUCCESS ── */
-#success-screen{
-  position:fixed;inset:0;z-index:400;background:#fff;
-  display:none;align-items:center;justify-content:center;
-  flex-direction:column;text-align:center;padding:40px;
-}
+#success-screen{position:fixed;inset:0;z-index:400;background:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;}
 #success-screen.open{display:flex}
-.success-icon{
-  width:80px;height:80px;background:rgba(34,197,94,.1);
-  border:2px solid #22c55e;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 24px;font-size:36px;
-}
+.success-icon{width:80px;height:80px;background:rgba(34,197,94,.1);border:2px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;}
 .success-title{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--navy);margin-bottom:12px}
 .success-body{color:var(--grey);font-size:.95rem;max-width:420px;line-height:1.75;margin-bottom:32px}
-.success-ref{
-  background:var(--gold-pale);border:1px solid rgba(200,146,42,.25);border-radius:10px;
-  padding:14px 24px;font-family:monospace;font-size:.875rem;color:var(--gold);margin-bottom:32px;
-}
-
-/* ── ABOUT ── */
+.success-ref{background:var(--gold-pale);border:1px solid rgba(200,146,42,.25);border-radius:10px;padding:14px 24px;font-family:monospace;font-size:.875rem;color:var(--gold);margin-bottom:32px;}
 .about{padding:var(--section-pad) var(--container-pad);background:#fff}
 .about-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
 .about-sub{color:var(--grey);line-height:1.75;margin-top:14px;margin-bottom:22px}
 .feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.feature-card{background:var(--off-white);border:1px solid var(--grey-light);border-radius:var(--radius);padding:22px;transition:.3s}
+.feature-card{background:var(--off-white);border:1px solid var(--grey-light);border-radius:var(--radius);padding:22px;transition:.3s;}
 .feature-card:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),var(--shadow)}
 .feature-card-icon{font-size:22px;margin-bottom:10px}
 .feature-card-title{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:5px}
 .feature-card-text{font-size:.78rem;color:var(--grey);line-height:1.6}
-
-/* ── FOOTER ── */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,60px) var(--container-pad) 32px}
 .footer-inner{max-width:1280px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -358,33 +178,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
 .footer-links a:hover{color:var(--gold)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:.75rem}
-
-/* ── TOAST ── */
-#toast{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--navy);color:#fff;padding:12px 24px;border-radius:50px;
-  font-size:.82rem;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:.02em;
-  z-index:500;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;
-  opacity:0;pointer-events:none;white-space:nowrap;
-  box-shadow:var(--shadow-lg);border:1px solid rgba(200,146,42,.3);
-}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:12px 24px;border-radius:50px;font-size:.82rem;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:.02em;z-index:500;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;opacity:0;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-lg);border:1px solid rgba(200,146,42,.3);}
 #toast .t-gold{color:var(--gold)}
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-
-/* ── RESPONSIVE & MOBILE NAV ── */
 @media(max-width:1050px){
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:68px;left:0;width:100%;
-    background:#fff;
-    flex-direction:column;
-    padding:20px var(--container-pad);
-    box-shadow:var(--shadow-lg);
-    border-bottom:1px solid var(--grey-light);
-    gap:16px;
-    align-items:flex-start;
-  }
+  .nav-links{display:none;position:absolute;top:68px;left:0;width:100%;background:#fff;flex-direction:column;padding:20px var(--container-pad);box-shadow:var(--shadow-lg);border-bottom:1px solid var(--grey-light);gap:16px;align-items:flex-start;}
   .nav-links.active{display:flex}
   .hamburger{display:flex}
 }
@@ -408,7 +206,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
@@ -433,7 +230,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
@@ -445,18 +241,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
         <a href="mailto:info@ewdp.co.za" class="btn-outline">Contact sales</a>
       </div>
       <div class="hero-stats">
-        <div>
-          <div class="stat-value">26<em>+</em></div>
-          <div class="stat-label">Products in stock</div>
-        </div>
-        <div>
-          <div class="stat-value">5<em>+</em></div>
-          <div class="stat-label">Premium brands</div>
-        </div>
-        <div>
-          <div class="stat-value"><em>ZAR</em></div>
-          <div class="stat-label">Prices incl. VAT</div>
-        </div>
+        <div><div class="stat-value">26<em>+</em></div><div class="stat-label">Products in stock</div></div>
+        <div><div class="stat-value">5<em>+</em></div><div class="stat-label">Premium brands</div></div>
+        <div><div class="stat-value"><em>ZAR</em></div><div class="stat-label">Prices incl. VAT</div></div>
       </div>
     </div>
     <div class="hero-media">
@@ -472,7 +259,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </section>
 
-<!-- CATALOG -->
 <section class="catalog" id="catalog">
   <div class="container">
     <div class="section-label">Aethel Energy Catalogue</div>
@@ -496,7 +282,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div>
@@ -507,31 +292,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
       <a href="mailto:info@ewdp.co.za" class="btn-primary" style="text-decoration:none">Get in touch</a>
     </div>
     <div class="feature-cards">
-      <div class="feature-card">
-        <div class="feature-card-icon">🚚</div>
-        <div class="feature-card-title">Nationwide Delivery</div>
-        <div class="feature-card-text">Door-to-door courier service across South Africa</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔒</div>
-        <div class="feature-card-title">Secure Payments</div>
-        <div class="feature-card-text">Fully encrypted, safe online transaction handling via Paystack</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">✅</div>
-        <div class="feature-card-title">Genuine Products</div>
-        <div class="feature-card-text">Direct supply with full manufacturer warranties</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📞</div>
-        <div class="feature-card-title">Customer Support</div>
-        <div class="feature-card-text">Expert pre-sales advice and technical guidance</div>
-      </div>
+      <div class="feature-card"><div class="feature-card-icon">🚚</div><div class="feature-card-title">Nationwide Delivery</div><div class="feature-card-text">Door-to-door courier service across South Africa</div></div>
+      <div class="feature-card"><div class="feature-card-icon">🔒</div><div class="feature-card-title">Secure Payments</div><div class="feature-card-text">Fully encrypted, safe online transaction handling via Paystack</div></div>
+      <div class="feature-card"><div class="feature-card-icon">✅</div><div class="feature-card-title">Genuine Products</div><div class="feature-card-text">Direct supply with full manufacturer warranties</div></div>
+      <div class="feature-card"><div class="feature-card-icon">📞</div><div class="feature-card-title">Customer Support</div><div class="feature-card-text">Expert pre-sales advice and technical guidance</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -568,7 +336,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </footer>
 
-<!-- CART OVERLAY + DRAWER -->
 <div id="cart-overlay"></div>
 <aside id="cart-drawer" aria-label="Shopping cart">
   <div class="cart-header">
@@ -591,7 +358,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </aside>
 
-<!-- CHECKOUT MODAL -->
 <div id="checkout-overlay" aria-modal="true" role="dialog">
   <div class="checkout-modal">
     <div class="checkout-modal-head">
@@ -630,7 +396,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </div>
 
-<!-- SUCCESS -->
 <div id="success-screen" role="alert">
   <div class="success-icon">✓</div>
   <h2 class="success-title">Order Confirmed!</h2>
@@ -642,11 +407,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   </div>
 </div>
 
-<!-- TOAST -->
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ── PRODUCTS ──
 const PRODUCTS = [
   {id:'GL-5001',    cat:'power',   name:'Photon Portable Power Station 500W',               sku:'GL-5001',         price:7757.50,  img:'https://www.sustainable.co.za/cdn/shop/files/PhotonPowerStation500WWithoutUPS1200x1200.jpg?v=1695198427&width=1800'},
   {id:'GL-1000R',   cat:'power',   name:'Photon Power Station 1000W with UPS',              sku:'GL-1000R',        price:13789.50, img:'https://www.sustainable.co.za/cdn/shop/files/PhotonPowerStation1000WwithUPS1200x1200.jpg?v=1695196733&width=1800'},
@@ -659,25 +422,24 @@ const PRODUCTS = [
   {id:'EV-11S',     cat:'ev',      name:'Sigen EV AC Charger 11 kW (Socket)',               sku:'SIGEN-11KW-SKT',  price:15239.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
   {id:'EV-22C',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Cable)',                sku:'SIGEN-22KW-CBL',  price:15239.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
   {id:'EV-22S',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Socket)',               sku:'SIGEN-22KW-SKT',  price:16834.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-DC12',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',         sku:'SIGEN-DC12KW',    price:44776.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-DC25',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',         sku:'SIGEN-DC25KW',    price:61915.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'HBOT-12',    cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
-  {id:'SE-HWC',     cat:'smart',   name:'SolarEdge Home Hot Water Controller',             sku:'SE-HWC',          price:2900.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-7', cat:'battery', name:'Victron Blue Smart IP65 12V 7A Charger',        sku:'VIC-IP65-12-7A',  price:1925.60,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP22-15',cat:'battery', name:'Victron Blue Smart IP22 12V 15A Charger',       sku:'VIC-IP22-12-15A', price:2399.75,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-25',cat:'battery', name:'Victron Blue Smart IP65 12V 25A Charger',       sku:'VIC-IP65-12-25A', price:3271.20,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-24',cat:'battery', name:'Victron Blue Smart IP65 24V 8A Charger',        sku:'VIC-IP65-24-8A',  price:2382.35,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP22-24',cat:'battery', name:'Victron Blue Smart IP22 24V 16A Charger',       sku:'VIC-IP22-24-16A', price:3030.50,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-24-20',  cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',  sku:'ORI-24-12-20',    price:793.15,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-12-18',  cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',   sku:'ORI-12-12-18',    price:2341.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-SM-30',  cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger', sku:'ORI-SMART-30',    price:4699.45,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-702',    cat:'dc',      name:'Victron Battery Monitor BMV-702',               sku:'BMV-702',         price:2718.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-712',    cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',         sku:'BMV-712',         price:2740.50,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BAL-01',     cat:'dc',      name:'Victron Battery Balancer',                       sku:'VIC-BAL',         price:916.40,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'EV-DC12',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',           sku:'SIGEN-DC12KW',    price:44776.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
+  {id:'EV-DC25',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',           sku:'SIGEN-DC25KW',    price:61915.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
+  {id:'HBOT-12',    cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',  sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
+  {id:'SE-HWC',     cat:'smart',   name:'SolarEdge Home Hot Water Controller',              sku:'SE-HWC',          price:2900.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-7', cat:'battery', name:'Victron Blue Smart IP65 12V 7A Charger',           sku:'VIC-IP65-12-7A',  price:1925.60,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP22-15',cat:'battery', name:'Victron Blue Smart IP22 12V 15A Charger',          sku:'VIC-IP22-12-15A', price:2399.75,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-25',cat:'battery', name:'Victron Blue Smart IP65 12V 25A Charger',          sku:'VIC-IP65-12-25A', price:3271.20,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-24',cat:'battery', name:'Victron Blue Smart IP65 24V 8A Charger',           sku:'VIC-IP65-24-8A',  price:2382.35,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP22-24',cat:'battery', name:'Victron Blue Smart IP22 24V 16A Charger',          sku:'VIC-IP22-24-16A', price:3030.50,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-24-20',  cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',    sku:'ORI-24-12-20',    price:793.15,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-12-18',  cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',     sku:'ORI-12-12-18',    price:2341.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-SM-30',  cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger',   sku:'ORI-SMART-30',    price:4699.45,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BMV-702',    cat:'dc',      name:'Victron Battery Monitor BMV-702',                  sku:'BMV-702',         price:2718.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BMV-712',    cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',            sku:'BMV-712',         price:2740.50,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BAL-01',     cat:'dc',      name:'Victron Battery Balancer',                         sku:'VIC-BAL',         price:916.40,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
 ];
 
 const CAT_LABELS={power:'UPS & Power Stations',ev:'EV Chargers',smart:'Smart Energy',battery:'Battery Chargers',dc:'DC Accessories'};
-const UNSPLASH='https://source.unsplash.com/400x300/?';
 
 let cart={}, currentCat='all', searchQuery='';
 
@@ -694,7 +456,7 @@ function showToast(msg){
 function buildImg(p,cls){
   const img=document.createElement('img');
   img.className=cls;img.alt=p.name;img.loading='lazy';
-  img.src=`${UNSPLASH}${encodeURIComponent(p.img)}`;
+  img.src=p.img; // ← FIXED: use the URL directly, no Unsplash prefix
   img.onerror=function(){
     const ph=document.createElement('div');
     ph.className=cls==='product-img'?'product-img-placeholder':'cart-item-img-ph';
@@ -828,10 +590,7 @@ $('payBtn').addEventListener('click',()=>{
   const totalKobo=Math.round(cartTotal()*100);
   const cartSummary=Object.values(cart).map(i=>`${i.name} ×${i.qty}`).join('; ');
   const ref=`AETHEL-${Date.now()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
-  
-  // Live Paystack Public Key
   const pk='pk_live_6dca32c3588ab3afe6e1f10e272554f740f8ae01';
-
   if(typeof PaystackPop==='undefined'){alert('Payment gateway failed to load. Please check your connection.');return}
   const handler=PaystackPop.setup({
     key:pk,email,amount:totalKobo,currency:'ZAR',ref,
@@ -866,21 +625,16 @@ $('filters').addEventListener('click',e=>{
 });
 $('search').addEventListener('input',e=>{searchQuery=e.target.value;renderProducts()});
 
-// Mobile Hamburger Menu
-const hamburger = $('hamburger');
-const navLinks = $('navLinks');
-
-hamburger.addEventListener('click', () => {
+const hamburger=$('hamburger');
+const navLinks=$('navLinks');
+hamburger.addEventListener('click',()=>{
   navLinks.classList.toggle('active');
-  const isOpen = navLinks.classList.contains('active');
-  hamburger.setAttribute('aria-expanded', String(isOpen));
+  hamburger.setAttribute('aria-expanded',String(navLinks.classList.contains('active')));
 });
-
-// Close mobile menu on link click
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
+navLinks.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
     navLinks.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-expanded','false');
   });
 });
 
