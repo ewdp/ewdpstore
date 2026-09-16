@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.ewdp.co.za/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aethel Energy South Africa — Product Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8922A;
+  --gold-light:#E8B84B;
+  --gold-pale:#FDF6E7;
+  --navy:#0A1628;
+  --navy-mid:#162340;
+  --white:#FFFFFF;
+  --off-white:#F7F8FA;
+  --grey:#6B7280;
+  --grey-light:#E5E7EB;
+  --text:#1A1A2E;
+  --radius:12px;
+  --shadow:0 4px 24px rgba(10,22,40,.08);
+  --shadow-lg:0 12px 48px rgba(10,22,40,.14);
+  --section-pad:clamp(3rem, 6vw, 5rem);
+  --container-pad:clamp(1rem, 4vw, 2.5rem);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;width:100%}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;left:0;width:100%;z-index:999;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--grey-light);
+  box-shadow:var(--shadow);
+}
+.nav-inner{
+  max-width:1280px;width:100%;margin:0 auto;height:68px;
+  padding:0 var(--container-pad);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  position:relative;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-logo-img{width:36px;height:36px;flex-shrink:0}
+.nav-logo-text{
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.95rem;
+  letter-spacing:.02em;color:var(--navy);white-space:nowrap;
+}
+.nav-logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:clamp(10px,1.5vw,22px);list-style:none;flex:1;justify-content:flex-end}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold)}
+.cart-btn{
+  background:var(--gold);color:#fff;border:none;
+  padding:9px 18px;border-radius:50px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s,transform .15s;min-height:42px;
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;
+}
+.cart-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.cart-badge{
+  background:rgba(255,255,255,.25);border-radius:20px;
+  font-size:11px;font-weight:700;padding:2px 7px;min-width:20px;text-align:center;
+  display:none;
+}
+.cart-badge.visible{display:inline-block}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;background:none;border:none;padding:8px;min-height:44px;min-width:44px;flex-shrink:0}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);padding:clamp(3rem,6vw,5rem) var(--container-pad);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 60% at 80% 40%,rgba(200,146,42,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);
+  color:var(--gold-light);font-size:.72rem;font-weight:700;
+  padding:5px 14px;border-radius:50px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase;
+}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero h1{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;
+  color:#fff;margin-bottom:20px;letter-spacing:-.02em;
+}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:clamp(.9rem,1.1vw,1rem);line-height:1.75;color:rgba(255,255,255,.75);max-width:500px;margin-bottom:32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--gold);color:#fff;padding:13px 30px;border-radius:50px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(200,146,42,.35);
+  min-height:46px;display:inline-flex;align-items:center;justify-content:center;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:#fff;padding:12px 28px;border-radius:50px;
+  border:2px solid rgba(255,255,255,.5);
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:.2s;
+  min-height:46px;display:inline-flex;align-items:center;justify-content:center;
+}
+.btn-outline:hover{background:#fff;color:var(--navy)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.stat-value{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.2vw,1.7rem);color:#fff;line-height:1}
+.stat-value em{color:var(--gold);font-style:normal}
+.stat-label{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+
+/* Hero Media Block */
+.hero-media{
+  position:relative;
+  width:100%;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  border:1px solid rgba(200,146,42,.3);
+}
+.hero-img{
+  width:100%;
+  height:100%;
+  min-height:360px;
+  max-height:480px;
+  object-fit:cover;
+  display:block;
+}
+.hero-media-badge{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  background:rgba(10,22,40,.85);
+  backdrop-filter:blur(10px);
+  padding:16px 20px;
+  border-radius:12px;
+  border:1px solid rgba(200,146,42,.3);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.hero-media-badge-icon{font-size:24px;flex-shrink:0}
+.hero-media-badge-title{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem}
+.hero-media-badge-sub{color:rgba(255,255,255,.7);font-size:.75rem;margin-top:2px}
+
+/* ── CATALOG ── */
+.catalog{padding:var(--section-pad) var(--container-pad);background:var(--off-white)}
+.container{max-width:1280px;margin:0 auto;width:100%}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;color:var(--navy);letter-spacing:-.02em}
+.section-title em{color:var(--gold);font-style:normal}
+.section-sub{font-size:.95rem;color:var(--grey);line-height:1.7;max-width:560px;margin-top:12px}
+
+/* Controls */
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:32px 0 24px}
+.search-wrap{position:relative;flex:1;min-width:220px}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--grey);pointer-events:none}
+#search{
+  width:100%;background:#fff;border:1.5px solid var(--grey-light);
+  color:var(--text);padding:11px 14px 11px 42px;border-radius:10px;
+  font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;
+}
+#search:focus{border-color:var(--gold)}
+#search::placeholder{color:var(--grey)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{
+  background:#fff;border:1.5px solid var(--grey-light);
+  color:var(--grey);padding:9px 16px;border-radius:50px;
+  cursor:pointer;font-size:.78rem;font-weight:600;letter-spacing:.02em;
+  transition:.2s;white-space:nowrap;font-family:'Inter',sans-serif;
+}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
+
+/* Product Grid */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.product-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
+  display:flex;flex-direction:column;cursor:pointer;
+}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.product-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--off-white);display:block;flex-shrink:0}
+.product-img-placeholder{
+  width:100%;aspect-ratio:4/3;
+  background:linear-gradient(135deg,#f0f2f5,#e5e7eb);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--grey);flex-shrink:0;
+}
+.product-img-placeholder span{font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.product-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column}
+.product-cat{
+  font-size:.68rem;font-weight:700;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;
+}
+.product-name{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px}
+.product-sku{font-size:.72rem;color:var(--grey);margin-bottom:16px}
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.product-price{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;color:var(--navy)}
+.product-price span{font-size:.8rem;font-weight:400;color:var(--grey)}
+.add-btn{
+  background:var(--gold);border:none;color:#fff;
+  width:40px;height:40px;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:.2s;flex-shrink:0;box-shadow:0 4px 12px rgba(200,146,42,.35);
+}
+.add-btn:hover{background:var(--gold-light);transform:scale(1.1)}
+.no-results{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--grey)}
+
+/* ── CART DRAWER ── */
+#cart-overlay{
+  position:fixed;inset:0;background:rgba(10,22,40,.55);backdrop-filter:blur(4px);
+  z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;
+}
+#cart-overlay.open{opacity:1;pointer-events:all}
+#cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);
+  background:#fff;border-left:1px solid var(--grey-light);
+  z-index:201;display:flex;flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+  box-shadow:-8px 0 40px rgba(10,22,40,.14);
+}
+#cart-drawer.open{transform:translateX(0)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--grey-light);flex-shrink:0}
+.cart-header h3{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy)}
+.close-btn{
+  background:var(--off-white);border:1px solid var(--grey-light);color:var(--grey);
+  width:34px;height:34px;border-radius:8px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.close-btn:hover{border-color:#ef4444;color:#ef4444}
+.cart-items{flex:1;overflow-y:auto;padding:14px 24px}
+.cart-empty{text-align:center;padding:60px 0;color:var(--grey)}
+.cart-empty svg{margin-bottom:12px;opacity:.3}
+.cart-empty p{font-size:.875rem}
+.cart-item{display:grid;grid-template-columns:60px 1fr auto;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid var(--grey-light)}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img{width:60px;height:60px;object-fit:cover;border-radius:10px;background:var(--off-white);flex-shrink:0}
+.cart-item-img-ph{width:60px;height:60px;border-radius:10px;background:var(--off-white);display:flex;align-items:center;justify-content:center;color:var(--grey);font-size:20px;flex-shrink:0}
+.cart-item-info{min-width:0}
+.cart-item-name{font-size:.8rem;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:8px;font-family:'Montserrat',sans-serif}
+.cart-qty{display:flex;align-items:center;gap:8px}
+.qty-btn{
+  width:28px;height:28px;background:var(--off-white);border:1.5px solid var(--grey-light);
+  color:var(--navy);border-radius:6px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;
+}
+.qty-btn:hover{border-color:var(--gold);color:var(--gold)}
+.qty-num{font-size:.875rem;font-weight:700;color:var(--navy);min-width:20px;text-align:center}
+.cart-item-total{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:800;color:var(--navy);white-space:nowrap}
+.remove-item{font-size:.72rem;color:var(--grey);cursor:pointer;margin-top:4px;display:block;transition:.2s}
+.remove-item:hover{color:#ef4444}
+.cart-footer{padding:20px 24px;border-top:1px solid var(--grey-light);flex-shrink:0}
+.cart-totals{margin-bottom:18px}
+.cart-totals-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.85rem;color:var(--grey)}
+.cart-totals-row.grand{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy);border-top:1px solid var(--grey-light);padding-top:12px;margin-top:8px}
+.checkout-btn{
+  width:100%;justify-content:center;padding:14px;font-size:.875rem;border-radius:10px;
+  background:var(--gold);color:#fff;border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;gap:8px;
+}
+.checkout-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* ── CHECKOUT MODAL ── */
+#checkout-overlay{
+  position:fixed;inset:0;background:rgba(10,22,40,.65);backdrop-filter:blur(6px);
+  z-index:300;display:none;align-items:center;justify-content:center;padding:20px;
+}
+#checkout-overlay.open{display:flex}
+.checkout-modal{
+  background:#fff;border-radius:20px;width:100%;max-width:480px;
+  max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);
+}
+.checkout-modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 28px;border-bottom:1px solid var(--grey-light);
+}
+.checkout-modal-head h3{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy)}
+.checkout-body{padding:24px 28px}
+.checkout-summary{background:var(--off-white);border-radius:12px;padding:16px;margin-bottom:24px}
+.checkout-summary-title{font-size:.72rem;color:var(--grey);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.checkout-summary-item{display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0;color:var(--text)}
+.checkout-summary-total{display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.95rem;color:var(--navy);border-top:1px solid var(--grey-light);padding-top:10px;margin-top:8px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.form-input,.form-textarea{
+  width:100%;background:#fff;border:1.5px solid var(--grey-light);
+  color:var(--text);padding:11px 14px;border-radius:10px;
+  font-family:'Inter',sans-serif;font-size:16px;outline:none;transition:.2s;resize:vertical;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--gold)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--grey)}
+.form-error{color:#ef4444;font-size:.72rem;margin-top:5px;display:none}
+.pay-btn{
+  width:100%;padding:14px;font-size:.875rem;border-radius:10px;margin-top:6px;
+  background:var(--gold);color:#fff;border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  transition:.2s;box-shadow:0 4px 20px rgba(200,146,42,.35);min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.pay-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* ── SUCCESS ── */
+#success-screen{
+  position:fixed;inset:0;z-index:400;background:#fff;
+  display:none;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;padding:40px;
+}
+#success-screen.open{display:flex}
+.success-icon{
+  width:80px;height:80px;background:rgba(34,197,94,.1);
+  border:2px solid #22c55e;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;font-size:36px;
+}
+.success-title{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--navy);margin-bottom:12px}
+.success-body{color:var(--grey);font-size:.95rem;max-width:420px;line-height:1.75;margin-bottom:32px}
+.success-ref{
+  background:var(--gold-pale);border:1px solid rgba(200,146,42,.25);border-radius:10px;
+  padding:14px 24px;font-family:monospace;font-size:.875rem;color:var(--gold);margin-bottom:32px;
+}
+
+/* ── ABOUT ── */
+.about{padding:var(--section-pad) var(--container-pad);background:#fff}
+.about-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.about-sub{color:var(--grey);line-height:1.75;margin-top:14px;margin-bottom:22px}
+.feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feature-card{background:var(--off-white);border:1px solid var(--grey-light);border-radius:var(--radius);padding:22px;transition:.3s}
+.feature-card:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),var(--shadow)}
+.feature-card-icon{font-size:22px;margin-bottom:10px}
+.feature-card-title{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:5px}
+.feature-card-text{font-size:.78rem;color:var(--grey);line-height:1.6}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,60px) var(--container-pad) 32px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-logo img{width:34px;height:34px}
+.footer-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#fff;letter-spacing:.04em}
+.footer-logo-text span{color:var(--gold)}
+.footer-tagline{font-size:.82rem;line-height:1.7;max-width:320px}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.75rem}
+
+/* ── TOAST ── */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--navy);color:#fff;padding:12px 24px;border-radius:50px;
+  font-size:.82rem;font-weight:600;font-family:'Montserrat',sans-serif;letter-spacing:.02em;
+  z-index:500;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;
+  opacity:0;pointer-events:none;white-space:nowrap;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(200,146,42,.3);
+}
+#toast .t-gold{color:var(--gold)}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ── RESPONSIVE & MOBILE NAV ── */
+@media(max-width:1050px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:68px;left:0;width:100%;
+    background:#fff;
+    flex-direction:column;
+    padding:20px var(--container-pad);
+    box-shadow:var(--shadow-lg);
+    border-bottom:1px solid var(--grey-light);
+    gap:16px;
+    align-items:flex-start;
+  }
+  .nav-links.active{display:flex}
+  .hamburger{display:flex}
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .feature-cards{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .controls{flex-direction:column;align-items:stretch}
+  .search-wrap{min-width:unset}
+}
+@media(max-width:480px){
+  .products-grid{grid-template-columns:1fr}
+  #cart-drawer{width:100vw}
+  .feature-cards{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .checkout-modal{border-radius:0;max-height:100vh;height:100vh}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="https://www.ewdp.co.za/favicon.png" alt="Aethel Energy South Africa" class="nav-logo-img"/>
+      <span class="nav-logo-text">AETHEL ENERGY <span>SOUTH AFRICA</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="https://ewdp.co.za" target="_blank">Home Website ↗</a></li>
+      <li><a href="#catalog">Products</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="mailto:info@ewdp.co.za">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="cart-btn" id="cartToggle" aria-label="View cart">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Aethel Energy Store</div>
+      <h1>Power your home.<br/><em>Own your energy.</em></h1>
+      <p class="hero-sub">The official store under Aethel Energy South Africa for UPS systems, portable power stations, EV chargers, smart geyser controllers, and Victron energy gear — delivered to your door.</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn-primary">Shop products</a>
+        <a href="mailto:info@ewdp.co.za" class="btn-outline">Contact sales</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-value">26<em>+</em></div>
+          <div class="stat-label">Products in stock</div>
+        </div>
+        <div>
+          <div class="stat-value">5<em>+</em></div>
+          <div class="stat-label">Premium brands</div>
+        </div>
+        <div>
+          <div class="stat-value"><em>ZAR</em></div>
+          <div class="stat-label">Prices incl. VAT</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80" alt="Aethel Energy Hardware & Solar Systems" class="hero-img"/>
+      <div class="hero-media-badge">
+        <div class="hero-media-badge-icon">⚡</div>
+        <div>
+          <div class="hero-media-badge-title">Reliable Energy Systems & Backup</div>
+          <div class="hero-media-badge-sub">UPS Power, EV Chargers & Smart Load Management</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="section-label">Aethel Energy Catalogue</div>
+    <h2 class="section-title">Genuine products at <em>unbeatable</em> prices.</h2>
+    <p class="section-sub">All prices in South African Rand (ZAR) including VAT. Secure online checkout with nationwide delivery available.</p>
+    <div class="controls">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="Search products, brands or SKUs…" aria-label="Search products"/>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">All Products</button>
+        <button class="filter-btn" data-cat="power">UPS & Power Stations</button>
+        <button class="filter-btn" data-cat="ev">EV Chargers</button>
+        <button class="filter-btn" data-cat="smart">Smart Energy</button>
+        <button class="filter-btn" data-cat="battery">Battery Chargers</button>
+        <button class="filter-btn" data-cat="dc">DC Accessories</button>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Aethel Energy South Africa</div>
+      <h2 class="section-title">An <em>Aethelwine Homes</em> (Pty) Ltd Division</h2>
+      <p class="about-sub">Aethel Energy South Africa is an energy solutions division of Aethelwine Homes (Pty) Ltd. This official store offers homeowners and business clients direct online access to top-tier hardware — from UPS power backup systems to full EV charging setups.</p>
+      <p style="color:var(--grey);font-size:.9rem;line-height:1.75;margin-bottom:24px">All orders are processed securely with nationwide door-to-door delivery across South Africa.</p>
+      <a href="mailto:info@ewdp.co.za" class="btn-primary" style="text-decoration:none">Get in touch</a>
+    </div>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-card-icon">🚚</div>
+        <div class="feature-card-title">Nationwide Delivery</div>
+        <div class="feature-card-text">Door-to-door courier service across South Africa</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🔒</div>
+        <div class="feature-card-title">Secure Payments</div>
+        <div class="feature-card-text">Fully encrypted, safe online transaction handling via Paystack</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">✅</div>
+        <div class="feature-card-title">Genuine Products</div>
+        <div class="feature-card-text">Direct supply with full manufacturer warranties</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">📞</div>
+        <div class="feature-card-title">Customer Support</div>
+        <div class="feature-card-text">Expert pre-sales advice and technical guidance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand footer-col">
+        <div class="footer-logo">
+          <img src="https://www.ewdp.co.za/favicon.png" alt="Aethel Energy South Africa"/>
+          <span class="footer-logo-text">AETHEL ENERGY <span>SOUTH AFRICA</span></span>
+        </div>
+        <p class="footer-tagline">An Aethelwine Homes (Pty) Ltd venture. Aethel Energy South Africa — supplying premium energy hardware and backup solutions directly to homes and offices.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="#catalog">UPS & Power Stations</a></li>
+          <li><a href="#catalog">EV Chargers</a></li>
+          <li><a href="#catalog">Smart Energy Controllers</a></li>
+          <li><a href="#catalog">Battery Chargers</a></li>
+          <li><a href="#catalog">DC Converters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="https://ewdp.co.za" target="_blank">Home Website</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="tel:0661508371">066 150 8371</a></li>
+          <li><a href="mailto:info@ewdp.co.za">info@ewdp.co.za</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aethelwine Homes (Pty) Ltd t/a Aethel Energy South Africa. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY + DRAWER -->
+<div id="cart-overlay"></div>
+<aside id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="close-btn" id="cartClose" aria-label="Close cart">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-totals">
+      <div class="cart-totals-row"><span>Subtotal</span><span id="cartSubtotal">R 0.00</span></div>
+      <div class="cart-totals-row"><span>Delivery</span><span>Calculated at checkout</span></div>
+      <div class="cart-totals-row grand"><span>Total</span><span id="cartTotal">R 0.00</span></div>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Proceed to Checkout
+    </button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkout-overlay" aria-modal="true" role="dialog">
+  <div class="checkout-modal">
+    <div class="checkout-modal-head">
+      <h3>Complete Your Order</h3>
+      <button class="close-btn" id="checkoutClose">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <div class="form-group">
+        <label class="form-label" for="cf-name">Full Name *</label>
+        <input type="text" id="cf-name" class="form-input" placeholder="Your full name" autocomplete="name"/>
+        <div class="form-error" id="err-name">Please enter your full name.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-email">Email Address *</label>
+        <input type="email" id="cf-email" class="form-input" placeholder="you@example.com" autocomplete="email"/>
+        <div class="form-error" id="err-email">Please enter a valid email address.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-phone">Phone Number *</label>
+        <input type="tel" id="cf-phone" class="form-input" placeholder="+27 XX XXX XXXX" autocomplete="tel"/>
+        <div class="form-error" id="err-phone">Please enter your phone number.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-address">Delivery Address *</label>
+        <textarea id="cf-address" class="form-textarea" rows="3" placeholder="Street address, suburb, city, postal code"></textarea>
+        <div class="form-error" id="err-address">Please enter your delivery address.</div>
+      </div>
+      <button class="pay-btn" id="payBtn">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        Pay Securely
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS -->
+<div id="success-screen" role="alert">
+  <div class="success-icon">✓</div>
+  <h2 class="success-title">Order Confirmed!</h2>
+  <p class="success-body">Thank you for your purchase from Aethel Energy South Africa. A confirmation email is on its way. Our team will contact you regarding delivery within one business day.</p>
+  <div class="success-ref" id="successRef">REF: —</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+    <button class="btn-primary" id="continueShop" style="border:none;cursor:pointer">Continue Shopping</button>
+    <a href="mailto:info@ewdp.co.za" class="btn-outline" style="border-color:var(--navy);color:var(--navy)">Contact Us</a>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ── PRODUCTS ──
+const PRODUCTS = [
+  {id:'GL-5001',  cat:'power',   name:'Photon Portable Power Station 500W',              sku:'GL-5001',         price:7757.50,  img:'solar portable power station 500W battery'},
+  {id:'GL-1000R', cat:'power',   name:'Photon Power Station 1000W with UPS',             sku:'GL-1000R',        price:13789.50, img:'portable power station 1000W UPS backup power'},
+  {id:'GL-2400',  cat:'power',   name:'Photon Power Station 2400W with UPS',             sku:'GL-2400',         price:31175.00, img:'large portable power station 2400W generator'},
+  {id:'SS-C-1K',  cat:'power',   name:'Sunsynk Contour 1kW / 1kWh Plug & Play',         sku:'SS-CONTOUR-1K',   price:8700.00,  img:'Sunsynk solar home energy storage unit'},
+  {id:'SS-C-2K',  cat:'power',   name:'Sunsynk Contour 1kW / 2kWh Plug & Play',         sku:'SS-CONTOUR-2K',   price:13050.00, img:'Sunsynk power wall home battery storage'},
+  {id:'EV-7C',    cat:'ev',      name:'Sigen EV AC Charger 7 kW (Cable)',                sku:'SIGEN-7KW-CBL',   price:12702.00, img:'EV wall charger 7kW cable electric vehicle home'},
+  {id:'EV-7S',    cat:'ev',      name:'Sigen EV AC Charger 7 kW (Socket)',               sku:'SIGEN-7KW-SKT',   price:13978.00, img:'EV AC charger socket 7kW home charging station'},
+  {id:'EV-11C',   cat:'ev',      name:'Sigen EV AC Charger 11 kW (Cable)',               sku:'SIGEN-11KW-CBL',  price:13978.00, img:'EV AC charger 11kW cable wall box electric car'},
+  {id:'EV-11S',   cat:'ev',      name:'Sigen EV AC Charger 11 kW (Socket)',              sku:'SIGEN-11KW-SKT',  price:15239.50, img:'EV charger 11kW socket electric vehicle'},
+  {id:'EV-22C',   cat:'ev',      name:'Sigen EV AC Charger 22 kW (Cable)',               sku:'SIGEN-22KW-CBL',  price:15239.50, img:'EV fast charger 22kW commercial cable'},
+  {id:'EV-22S',   cat:'ev',      name:'Sigen EV AC Charger 22 kW (Socket)',              sku:'SIGEN-22KW-SKT',  price:16834.50, img:'EV AC 22kW charger socket commercial station'},
+  {id:'EV-DC12',  cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',         sku:'SIGEN-DC12KW',    price:44776.00, img:'EV DC fast charger module 12kW commercial'},
+  {id:'EV-DC25',  cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',         sku:'SIGEN-DC25KW',    price:61915.00, img:'EV DC fast charging station 25kW commercial'},
+  {id:'HBOT-12',  cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'smart geyser controller IoT home energy saving'},
+  {id:'SE-HWC',   cat:'smart',   name:'SolarEdge Home Hot Water Controller',             sku:'SE-HWC',          price:2900.00,  img:'SolarEdge solar hot water energy controller'},
+  {id:'VIC-IP65-7', cat:'battery',name:'Victron Blue Smart IP65 12V 7A Charger',        sku:'VIC-IP65-12-7A',  price:1925.60,  img:'Victron Blue Smart IP65 battery charger 12V'},
+  {id:'VIC-IP22-15',cat:'battery',name:'Victron Blue Smart IP22 12V 15A Charger',       sku:'VIC-IP22-12-15A', price:2399.75,  img:'Victron Blue Smart IP22 12V 15A charger'},
+  {id:'VIC-IP65-25',cat:'battery',name:'Victron Blue Smart IP65 12V 25A Charger',       sku:'VIC-IP65-12-25A', price:3271.20,  img:'Victron Blue Smart IP65 charger 25A marine'},
+  {id:'VIC-IP65-24',cat:'battery',name:'Victron Blue Smart IP65 24V 8A Charger',        sku:'VIC-IP65-24-8A',  price:2382.35,  img:'Victron Blue Smart 24V 8A battery charger'},
+  {id:'VIC-IP22-24',cat:'battery',name:'Victron Blue Smart IP22 24V 16A Charger',       sku:'VIC-IP22-24-16A', price:3030.50,  img:'Victron Blue Smart IP22 24V 16A battery charger'},
+  {id:'ORI-24-20',cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',  sku:'ORI-24-12-20',    price:793.15,   img:'Victron Orion DC DC converter 24V 12V'},
+  {id:'ORI-12-18',cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',   sku:'ORI-12-12-18',    price:2341.75,  img:'Victron Orion isolated DC DC converter'},
+  {id:'ORI-SM-30',cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger', sku:'ORI-SMART-30',    price:4699.45,  img:'Victron Orion Smart DC DC charger 30A'},
+  {id:'BMV-702',  cat:'dc',      name:'Victron Battery Monitor BMV-702',                sku:'BMV-702',         price:2718.75,  img:'Victron BMV-702 battery monitor display'},
+  {id:'BMV-712',  cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',          sku:'BMV-712',         price:2740.50,  img:'Victron BMV-712 Smart battery monitor Bluetooth'},
+  {id:'BAL-01',   cat:'dc',      name:'Victron Battery Balancer',                       sku:'VIC-BAL',         price:916.40,   img:'Victron battery balancer energy storage'},
+];
+
+const CAT_LABELS={power:'UPS & Power Stations',ev:'EV Chargers',smart:'Smart Energy',battery:'Battery Chargers',dc:'DC Accessories'};
+const UNSPLASH='https://source.unsplash.com/400x300/?';
+
+let cart={}, currentCat='all', searchQuery='';
+
+const $=id=>document.getElementById(id);
+const fmt=n=>'R\u00a0'+n.toLocaleString('en-ZA',{minimumFractionDigits:2,maximumFractionDigits:2});
+const cartCount=()=>Object.values(cart).reduce((s,i)=>s+i.qty,0);
+const cartTotal=()=>Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
+
+function showToast(msg){
+  const t=$('toast');t.innerHTML=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+function buildImg(p,cls){
+  const img=document.createElement('img');
+  img.className=cls;img.alt=p.name;img.loading='lazy';
+  img.src=`${UNSPLASH}${encodeURIComponent(p.img)}`;
+  img.onerror=function(){
+    const ph=document.createElement('div');
+    ph.className=cls==='product-img'?'product-img-placeholder':'cart-item-img-ph';
+    if(cls==='product-img'){
+      ph.innerHTML=`<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>${p.sku}</span>`;
+    } else {ph.textContent='⚡'}
+    this.replaceWith(ph);
+  };
+  return img;
+}
+
+function renderProducts(){
+  const grid=$('productsGrid');grid.innerHTML='';
+  const filtered=PRODUCTS.filter(p=>{
+    const matchCat=currentCat==='all'||p.cat===currentCat;
+    const q=searchQuery.toLowerCase();
+    const matchQ=!q||p.name.toLowerCase().includes(q)||p.sku.toLowerCase().includes(q);
+    return matchCat&&matchQ;
+  });
+  if(!filtered.length){
+    grid.innerHTML='<div class="no-results"><p>No products found. Try adjusting your search or filter.</p></div>';return;
+  }
+  filtered.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='product-card';
+    const img=buildImg(p,'product-img');
+    card.appendChild(img);
+    card.innerHTML+=`
+      <div class="product-body">
+        <div class="product-cat">${CAT_LABELS[p.cat]||p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-sku">SKU: ${p.sku}</div>
+        <div class="product-footer">
+          <div class="product-price">${fmt(p.price)}</div>
+          <button class="add-btn" data-id="${p.id}" aria-label="Add to cart" title="Add to cart">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('.add-btn').forEach(btn=>{
+    btn.addEventListener('click',e=>{e.stopPropagation();addToCart(btn.dataset.id)});
+  });
+}
+
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
+  if(cart[id])cart[id].qty++;else cart[id]={...p,qty:1};
+  updateCartUI();
+  showToast(`<span class="t-gold">✓</span> ${p.name.split(' ').slice(0,4).join(' ')} added`);
+}
+function removeFromCart(id){delete cart[id];updateCartUI()}
+function changeQty(id,delta){
+  if(!cart[id])return;cart[id].qty+=delta;
+  if(cart[id].qty<=0)delete cart[id];updateCartUI();
+}
+
+function updateCartUI(){
+  const count=cartCount(),total=cartTotal();
+  const badge=$('cartBadge');
+  badge.textContent=count;badge.classList.toggle('visible',count>0);
+  const itemsEl=$('cartItems'),footer=$('cartFooter');
+  if(!count){
+    itemsEl.innerHTML=`<div class="cart-empty"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is empty</p></div>`;
+    footer.style.display='none';return;
+  }
+  footer.style.display='block';itemsEl.innerHTML='';
+  Object.values(cart).forEach(item=>{
+    const row=document.createElement('div');row.className='cart-item';
+    const img=buildImg(item,'cart-item-img');row.appendChild(img);
+    const info=document.createElement('div');info.className='cart-item-info';
+    info.innerHTML=`<div class="cart-item-name">${item.name}</div>
+      <div class="cart-qty">
+        <button class="qty-btn" data-id="${item.id}" data-delta="-1">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" data-id="${item.id}" data-delta="1">+</button>
+      </div>
+      <span class="remove-item" data-id="${item.id}">Remove</span>`;
+    row.appendChild(info);
+    const tot=document.createElement('div');tot.className='cart-item-total';tot.textContent=fmt(item.price*item.qty);
+    row.appendChild(tot);itemsEl.appendChild(row);
+  });
+  itemsEl.querySelectorAll('.qty-btn').forEach(b=>b.addEventListener('click',()=>changeQty(b.dataset.id,+b.dataset.delta)));
+  itemsEl.querySelectorAll('.remove-item').forEach(b=>b.addEventListener('click',()=>removeFromCart(b.dataset.id)));
+  $('cartSubtotal').textContent=fmt(total);$('cartTotal').textContent=fmt(total);
+}
+
+function openCart(){$('cart-overlay').classList.add('open');$('cart-drawer').classList.add('open');document.body.style.overflow='hidden'}
+function closeCart(){$('cart-overlay').classList.remove('open');$('cart-drawer').classList.remove('open');document.body.style.overflow=''}
+$('cartToggle').addEventListener('click',openCart);
+$('cartClose').addEventListener('click',closeCart);
+$('cart-overlay').addEventListener('click',closeCart);
+
+function buildCheckoutSummary(){
+  let html=`<div class="checkout-summary-title">Order Summary</div>`;
+  Object.values(cart).forEach(i=>{
+    html+=`<div class="checkout-summary-item"><span>${i.name.split(' ').slice(0,5).join(' ')}… ×${i.qty}</span><span>${fmt(i.price*i.qty)}</span></div>`;
+  });
+  html+=`<div class="checkout-summary-total"><span>Total</span><span>${fmt(cartTotal())}</span></div>`;
+  $('checkoutSummary').innerHTML=html;
+}
+function openCheckout(){closeCart();buildCheckoutSummary();$('checkout-overlay').classList.add('open');$('cf-name').focus()}
+$('checkoutBtn').addEventListener('click',openCheckout);
+$('checkoutClose').addEventListener('click',()=>$('checkout-overlay').classList.remove('open'));
+$('checkout-overlay').addEventListener('click',e=>{if(e.target===$('checkout-overlay'))$('checkout-overlay').classList.remove('open')});
+
+function validateField(id,errId,test){
+  const val=$(id).value.trim(),pass=test(val);
+  $(errId).style.display=pass?'none':'block';
+  $(id).style.borderColor=pass?'':'#ef4444';
+  return pass;
+}
+function validateAll(){
+  return [
+    validateField('cf-name','err-name',v=>v.length>=2),
+    validateField('cf-email','err-email',v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
+    validateField('cf-phone','err-phone',v=>v.length>=9),
+    validateField('cf-address','err-address',v=>v.length>=10)
+  ].every(Boolean);
+}
+['cf-name','cf-email','cf-phone','cf-address'].forEach(id=>{
+  const map={'cf-name':'err-name','cf-email':'err-email','cf-phone':'err-phone','cf-address':'err-address'};
+  $(id).addEventListener('input',()=>{$(map[id]).style.display='none';$(id).style.borderColor=''});
+});
+
+$('payBtn').addEventListener('click',()=>{
+  if(!validateAll())return;
+  const name=$('cf-name').value.trim(),email=$('cf-email').value.trim();
+  const phone=$('cf-phone').value.trim(),address=$('cf-address').value.trim();
+  const totalKobo=Math.round(cartTotal()*100);
+  const cartSummary=Object.values(cart).map(i=>`${i.name} ×${i.qty}`).join('; ');
+  const ref=`AETHEL-${Date.now()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
+  
+  // Live Paystack Public Key
+  const pk='pk_live_6dca32c3588ab3afe6e1f10e272554f740f8ae01';
+
+  if(typeof PaystackPop==='undefined'){alert('Payment gateway failed to load. Please check your connection.');return}
+  const handler=PaystackPop.setup({
+    key:pk,email,amount:totalKobo,currency:'ZAR',ref,
+    firstname:name.split(' ')[0],lastname:name.split(' ').slice(1).join(' ')||'',phone,
+    metadata:{custom_fields:[
+      {display_name:'Delivery Address',variable_name:'delivery_address',value:address},
+      {display_name:'Order Items',variable_name:'order_items',value:cartSummary},
+      {display_name:'Portal',variable_name:'portal',value:'Aethel Energy SA'}
+    ]},
+    callback:function(response){
+      $('checkout-overlay').classList.remove('open');
+      cart={};updateCartUI();
+      $('successRef').textContent=`REF: ${response.reference||ref}`;
+      $('success-screen').classList.add('open');
+      document.body.style.overflow='hidden';
+    },
+    onClose:function(){}
+  });
+  handler.openIframe();
+});
+
+$('continueShop').addEventListener('click',()=>{
+  $('success-screen').classList.remove('open');document.body.style.overflow='';
+  ['cf-name','cf-email','cf-phone','cf-address'].forEach(id=>$(id).value='');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+$('filters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');if(!btn)return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');currentCat=btn.dataset.cat;renderProducts();
+});
+$('search').addEventListener('input',e=>{searchQuery=e.target.value;renderProducts()});
+
+// Mobile Hamburger Menu
+const hamburger = $('hamburger');
+const navLinks = $('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  const isOpen = navLinks.classList.contains('active');
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+});
+
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+updateCartUI();
+renderProducts();
+</script>
+</body>
+</html>
