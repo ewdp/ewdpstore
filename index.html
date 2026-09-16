@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.ewdp.co.za/favicon.png">
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <title>Aethel Energy South Africa — Product Store</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -29,20 +28,20 @@
   --section-pad:clamp(3rem, 6vw, 5rem);
   --container-pad:clamp(1rem, 4vw, 2.5rem);
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;width:100%}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;width:100%;max-width:100%}
 
 /* ── NAV ── */
 nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--grey-light);box-shadow:var(--shadow);}
-.nav-inner{max-width:1280px;width:100%;margin:0 auto;height:68px;padding:0 var(--container-pad);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-inner{max-width:1280px;width:100%;margin:0 auto;height:68px;padding:0 var(--container-pad);display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;min-width:0;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;min-width:0}
 .nav-logo-img{width:36px;height:36px;flex-shrink:0}
-.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.95rem;letter-spacing:.02em;color:var(--navy);white-space:nowrap;}
+.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.95rem;letter-spacing:.02em;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .nav-logo-text span{color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:clamp(10px,1.5vw,22px);list-style:none;flex:1;justify-content:flex-end}
 .nav-links a{font-size:.82rem;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--gold)}
-.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:auto}
 .cart-btn{background:var(--gold);color:#fff;border:none;padding:9px 18px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;min-height:42px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;}
 .cart-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
 .cart-badge{background:rgba(255,255,255,.25);border-radius:20px;font-size:11px;font-weight:700;padding:2px 7px;min-width:20px;text-align:center;display:none;}
@@ -53,7 +52,7 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 /* ── HERO ── */
 .hero{background:var(--navy);padding:clamp(3rem,6vw,5rem) var(--container-pad);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 80% 40%,rgba(200,146,42,.12) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;position:relative;z-index:1;min-width:0}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);color:var(--gold-light);font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase;}
 .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
 .hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.4rem);line-height:1.1;color:#fff;margin-bottom:20px;letter-spacing:-.02em;}
@@ -69,15 +68,15 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 .stat-value em{color:var(--gold);font-style:normal}
 .stat-label{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
 .hero-media{position:relative;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.4);border:1px solid rgba(200,146,42,.3);}
-.hero-img{width:100%;height:100%;min-height:360px;max-height:480px;object-fit:cover;display:block;}
-.hero-media-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(10,22,40,.85);backdrop-filter:blur(10px);padding:16px 20px;border-radius:12px;border:1px solid rgba(200,146,42,.3);display:flex;align-items:center;gap:14px;}
+.hero-img{width:100%;height:clamp(240px,38vw,480px);object-fit:cover;display:block;}
+.hero-media-badge{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(10,22,40,.85);backdrop-filter:blur(10px);padding:12px 14px;border-radius:12px;border:1px solid rgba(200,146,42,.3);display:flex;align-items:center;gap:14px;}
 .hero-media-badge-icon{font-size:24px;flex-shrink:0}
-.hero-media-badge-title{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem}
-.hero-media-badge-sub{color:rgba(255,255,255,.7);font-size:.75rem;margin-top:2px}
+.hero-media-badge-title{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.76rem}
+.hero-media-badge-sub{color:rgba(255,255,255,.7);font-size:.68rem;line-height:1.35;margin-top:2px}
 
 /* ── CATALOG ── */
 .catalog{padding:var(--section-pad) var(--container-pad);background:var(--off-white)}
-.container{max-width:1280px;margin:0 auto;width:100%}
+.container{max-width:1280px;margin:0 auto;width:100%;min-width:0}
 .section-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .section-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;color:var(--navy);letter-spacing:-.02em}
 .section-title em{color:var(--gold);font-style:normal}
@@ -96,18 +95,19 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 .filter-btn{background:#fff;border:1.5px solid var(--grey-light);color:var(--grey);padding:9px 16px;border-radius:50px;cursor:pointer;font-size:.78rem;font-weight:600;letter-spacing:.02em;transition:.2s;white-space:nowrap;font-family:'Inter',sans-serif;}
 .filter-btn:hover{border-color:var(--gold);color:var(--gold)}
 .filter-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-pale)}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.product-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;cursor:pointer;}
+/* FIX: explicit breakpoint-based grid instead of auto-fill minmax */
+.products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.product-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;cursor:pointer;min-width:0;}
 .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
 .product-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--off-white);display:block;flex-shrink:0}
 .product-img-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#f0f2f5,#e5e7eb);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--grey);flex-shrink:0;}
 .product-img-placeholder span{font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.product-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column}
+.product-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;min-width:0}
 .product-cat{font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
-.product-name{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px}
-.product-sku{font-size:.72rem;color:var(--grey);margin-bottom:16px}
-.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-.product-price{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;color:var(--navy)}
+.product-name{font-family:'Montserrat',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px;min-width:0;overflow-wrap:anywhere}
+.product-sku{font-size:.72rem;color:var(--grey);margin-bottom:16px;min-width:0;overflow-wrap:anywhere}
+.product-footer{display:flex;align-items:flex-end;justify-content:space-between;margin-top:auto;gap:10px;min-width:0}
+.product-price{font-family:'Montserrat',sans-serif;font-size:clamp(1rem,2vw,1.25rem);font-weight:800;color:var(--navy);min-width:0}
 .product-price span{font-size:.8rem;font-weight:400;color:var(--grey)}
 .add-btn{background:var(--gold);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0;box-shadow:0 4px 12px rgba(200,146,42,.35);}
 .add-btn:hover{background:var(--gold-light);transform:scale(1.1)}
@@ -116,7 +116,7 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 /* ── CART OVERLAY & DRAWER ── */
 #cart-overlay{position:fixed;inset:0;background:rgba(10,22,40,.55);backdrop-filter:blur(4px);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;}
 #cart-overlay.open{opacity:1;pointer-events:all}
-#cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#fff;border-left:1px solid var(--grey-light);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(10,22,40,.14);}
+#cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#fff;border-left:1px solid var(--grey-light);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(10,22,40,.14);padding-bottom:env(safe-area-inset-bottom);}
 #cart-drawer.open{transform:translateX(0)}
 .cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--grey-light);flex-shrink:0}
 .cart-header h3{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy)}
@@ -167,7 +167,7 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 .pay-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
 
 /* ── SUCCESS SCREEN ── */
-#success-screen{position:fixed;inset:0;z-index:400;background:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;}
+#success-screen{position:fixed;inset:0;z-index:400;background:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;padding-top:max(40px,env(safe-area-inset-top));padding-bottom:max(40px,env(safe-area-inset-bottom));}
 #success-screen.open{display:flex}
 .success-icon{width:80px;height:80px;background:rgba(34,197,94,.1);border:2px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:36px;}
 .success-title{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--navy);margin-bottom:12px}
@@ -177,7 +177,7 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 /* ── ABOUT ── */
 .about{padding:var(--section-pad) var(--container-pad);background:#fff}
 /* FIX: about-grid needs a centering wrapper like other sections */
-.about-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.about-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;min-width:0}
 .about-sub{color:var(--grey);line-height:1.75;margin-top:14px;margin-bottom:22px}
 .feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .feature-card{background:var(--off-white);border:1px solid var(--grey-light);border-radius:var(--radius);padding:22px;transition:.3s;}
@@ -188,7 +188,7 @@ nav{position:sticky;top:0;left:0;width:100%;z-index:999;background:rgba(255,255,
 
 /* ── FOOTER ── */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,60px) var(--container-pad) 32px}
-.footer-inner{max-width:1280px;margin:0 auto}
+.footer-inner{max-width:1280px;margin:0 auto;min-width:0}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .footer-logo img{width:34px;height:34px}
@@ -212,6 +212,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
    RESPONSIVE BREAKPOINTS
 ══════════════════════════════════════════ */
 
+/* ── ≤1100px: product grid narrows to 3 columns ── */
+@media(max-width:1100px){
+  .products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
 /* ── ≤1050px: tablet / small laptop ── */
 @media(max-width:1050px){
   .nav-links{
@@ -227,17 +232,28 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
     align-items:flex-start;
     /* FIX: ensure menu sits above hero content */
     z-index:998;
+    max-height:calc(100dvh - 68px);
+    overflow-y:auto;
   }
   .nav-links.active{display:flex}
   .hamburger{display:flex}
+}
+
+/* ── ≤800px: two-column product grid ── */
+@media(max-width:800px){
+  .products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .product-body{padding:16px}
+  .product-name{font-size:.88rem}
+  .product-price{font-size:1rem}
+  .add-btn{width:36px;height:36px}
 }
 
 /* ── ≤768px: mobile landscape / small tablet ── */
 @media(max-width:768px){
   .hero-inner{grid-template-columns:1fr;gap:32px}
 
-  /* FIX: hero image smaller on single-column layout */
-  .hero-img{min-height:220px;max-height:300px}
+  /* FIX: hero image uses a clamp instead of fixed min/max heights */
+  .hero-img{height:clamp(220px,58vw,320px)}
 
   /* FIX: hero stats keep 3 columns with tighter font */
   .hero-stats{grid-template-columns:repeat(3,1fr);gap:16px}
@@ -252,12 +268,27 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
 
   /* FIX: controls stack, filters scroll horizontally */
   .controls{flex-direction:column;align-items:stretch}
-  .search-wrap{min-width:unset}
+  .search-wrap{min-width:unset;width:100%}
+}
+
+/* ── ≤620px: compact navigation ── */
+@media(max-width:620px){
+  .nav-inner{gap:8px}
+  .nav-logo-text{max-width:150px;font-size:0.78rem}
+  .cart-btn{padding:8px 12px;font-size:0.68rem}
+}
+
+/* ── ≤520px: single-column product grid ── */
+@media(max-width:520px){
+  .products-grid{grid-template-columns:1fr;gap:16px}
 }
 
 /* ── ≤480px: mobile portrait ── */
 @media(max-width:480px){
-  .products-grid{grid-template-columns:1fr}
+  .nav-logo-text{max-width:125px}
+
+  .hero-img{height:230px}
+  .hero-media-badge-icon{display:none}
 
   /* FIX: full-width cart has tighter padding */
   #cart-drawer{width:100vw}
@@ -272,12 +303,32 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   .stat-value{font-size:clamp(1rem,3.5vw,1.2rem)}
   .stat-label{font-size:.6rem;letter-spacing:.02em}
 
-  /* FIX: checkout modal fills screen with no padding cutoff */
-  #checkout-overlay{padding:0}
-  .checkout-modal{border-radius:0;max-height:100dvh;height:100dvh;height:100vh}
+  /* FIX: checkout modal fills the dynamic viewport with no padding cutoff */
+  #checkout-overlay{padding:0;align-items:stretch}
+  .checkout-modal{width:100%;height:100dvh;max-height:none;border-radius:0;overflow-y:auto}
+  .checkout-modal-head{position:sticky;top:0;z-index:2;background:#fff}
 
   .success-title{font-size:1.5rem}
   .success-body{font-size:.875rem}
+}
+
+/* ── ≤400px: very small phones ── */
+@media(max-width:400px){
+  .nav-logo-text{max-width:105px}
+  .cart-btn{padding:8px 10px}
+  .cart-btn svg{display:none}
+}
+
+/* ── ≤380px: compact hero badge ── */
+@media(max-width:380px){
+  .hero-media-badge{padding:10px 12px}
+}
+
+/* ── checkout modal fallback for browsers without dvh ── */
+@supports not (height:100dvh){
+  @media(max-width:480px){
+    .checkout-modal{height:100vh}
+  }
 }
 
 /* ── landscape phone (short viewport) ── */
@@ -287,7 +338,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
   .hero h1{font-size:1.6rem;margin-bottom:12px}
   .hero-sub{margin-bottom:16px;font-size:.85rem}
   .hero-stats{margin-top:20px;padding-top:16px;gap:12px}
-  .hero-img{min-height:160px;max-height:200px}
+  .hero-img{height:170px}
 }
 </style>
 </head>
@@ -296,7 +347,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="https://www.ewdp.co.za/favicon.png" alt="Aethel Energy South Africa" class="nav-logo-img"/>
+      <img src="https://www.ewdp.co.za/favicon.png" alt="Aethel Energy South Africa" class="nav-logo-img" width="36" height="36"/>
       <span class="nav-logo-text">AETHEL ENERGY <span>SOUTH AFRICA</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -335,7 +386,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:clamp(40px,6vw,
       </div>
     </div>
     <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80" alt="Aethel Energy Hardware & Solar Systems" class="hero-img"/>
+      <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80" alt="Aethel Energy Hardware & Solar Systems" class="hero-img" width="1000" height="650"/>
       <div class="hero-media-badge">
         <div class="hero-media-badge-icon">⚡</div>
         <div>
@@ -505,29 +556,29 @@ const PRODUCTS = [
   {id:'GL-5001',    cat:'power',   name:'Photon Portable Power Station 500W',               sku:'GL-5001',         price:7757.50,  img:'https://www.sustainable.co.za/cdn/shop/files/PhotonPowerStation500WWithoutUPS1200x1200.jpg?v=1695198427&width=1800'},
   {id:'GL-1000R',   cat:'power',   name:'Photon Power Station 1000W with UPS',              sku:'GL-1000R',        price:13789.50, img:'https://www.sustainable.co.za/cdn/shop/files/PhotonPowerStation1000WwithUPS1200x1200.jpg?v=1695196733&width=1800'},
   {id:'GL-2400',    cat:'power',   name:'Photon Power Station 2400W with UPS',              sku:'GL-2400',         price:31175.00, img:'https://www.sustainable.co.za/cdn/shop/files/PhotonPowerStation2400WWithUPS1200x1200.jpg?v=1695193908&width=1800'},
-  {id:'SS-C-1K',    cat:'power',   name:'Sunsynk Contour 1kW / 1kWh Plug & Play',          sku:'SS-CONTOUR-1K',   price:8700.00,  img:'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80'},
-  {id:'SS-C-2K',    cat:'power',   name:'Sunsynk Contour 1kW / 2kWh Plug & Play',          sku:'SS-CONTOUR-2K',   price:13050.00, img:'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-7C',      cat:'ev',      name:'Sigen EV AC Charger 7 kW (Cable)',                 sku:'SIGEN-7KW-CBL',   price:12702.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-7S',      cat:'ev',      name:'Sigen EV AC Charger 7 kW (Socket)',                sku:'SIGEN-7KW-SKT',   price:13978.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-11C',     cat:'ev',      name:'Sigen EV AC Charger 11 kW (Cable)',                sku:'SIGEN-11KW-CBL',  price:13978.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-11S',     cat:'ev',      name:'Sigen EV AC Charger 11 kW (Socket)',               sku:'SIGEN-11KW-SKT',  price:15239.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-22C',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Cable)',                sku:'SIGEN-22KW-CBL',  price:15239.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-22S',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Socket)',               sku:'SIGEN-22KW-SKT',  price:16834.50, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-DC12',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',           sku:'SIGEN-DC12KW',    price:44776.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'EV-DC25',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',           sku:'SIGEN-DC25KW',    price:61915.00, img:'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80'},
-  {id:'HBOT-12',    cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',  sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
-  {id:'SE-HWC',     cat:'smart',   name:'SolarEdge Home Hot Water Controller',              sku:'SE-HWC',          price:2900.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-7', cat:'battery', name:'Victron Blue Smart IP65 12V 7A Charger',           sku:'VIC-IP65-12-7A',  price:1925.60,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP22-15',cat:'battery', name:'Victron Blue Smart IP22 12V 15A Charger',          sku:'VIC-IP22-12-15A', price:2399.75,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-25',cat:'battery', name:'Victron Blue Smart IP65 12V 25A Charger',          sku:'VIC-IP65-12-25A', price:3271.20,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP65-24',cat:'battery', name:'Victron Blue Smart IP65 24V 8A Charger',           sku:'VIC-IP65-24-8A',  price:2382.35,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'VIC-IP22-24',cat:'battery', name:'Victron Blue Smart IP22 24V 16A Charger',          sku:'VIC-IP22-24-16A', price:3030.50,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-24-20',  cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',    sku:'ORI-24-12-20',    price:793.15,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-12-18',  cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',     sku:'ORI-12-12-18',    price:2341.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'ORI-SM-30',  cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger',   sku:'ORI-SMART-30',    price:4699.45,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-702',    cat:'dc',      name:'Victron Battery Monitor BMV-702',                  sku:'BMV-702',         price:2718.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BMV-712',    cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',            sku:'BMV-712',         price:2740.50,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
-  {id:'BAL-01',     cat:'dc',      name:'Victron Battery Balancer',                         sku:'VIC-BAL',         price:916.40,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'SS-C-1K',    cat:'power',   name:'Sunsynk Contour 1kW / 1kWh Plug & Play',          sku:'SS-CONTOUR-1K',   price:8700.00,  img:'https://www.sustainable.co.za/cdn/shop/files/Sunsynkcontour1kw1200x1200.jpg?v=1695131119&width=1800'},
+  {id:'SS-C-2K',    cat:'power',   name:'Sunsynk Contour 1kW / 2kWh Plug & Play',          sku:'SS-CONTOUR-2K',   price:13050.00, img:'https://www.sustainable.co.za/cdn/shop/files/104964_th1.jpg?v=1695134536&width=1800'},
+  {id:'EV-7C',      cat:'ev',      name:'Sigen EV AC Charger 7 kW (Cable)',                 sku:'SIGEN-7KW-CBL',   price:12702.00, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-7S',      cat:'ev',      name:'Sigen EV AC Charger 7 kW (Socket)',                sku:'SIGEN-7KW-SKT',   price:13978.00, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-11C',     cat:'ev',      name:'Sigen EV AC Charger 11 kW (Cable)',                sku:'SIGEN-11KW-CBL',  price:13978.00, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-11S',     cat:'ev',      name:'Sigen EV AC Charger 11 kW (Socket)',               sku:'SIGEN-11KW-SKT',  price:15239.50, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-22C',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Cable)',                sku:'SIGEN-22KW-CBL',  price:15239.50, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-22S',     cat:'ev',      name:'Sigen EV AC Charger 22 kW (Socket)',               sku:'SIGEN-22KW-SKT',  price:16834.50, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-DC12',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 12 kW',         sku:'SIGEN-DC12KW',    price:44776.00, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'EV-DC25',    cat:'ev',      name:'Sigen EV DC Fast Charging Module 25 kW',         sku:'SIGEN-DC25KW',    price:61915.00, img:'https://wwwstatic.sigenergy.com/upload/2026-05-15/1778831053561_36b3595a-4258-4f42-8806-c4d13f77949c.webp'},
+  {id:'HBOT-12',    cat:'smart',   name:'Plentify HotBot Smart Geyser Controller (12-Mo)',sku:'PLENTIFY-HOTBOT', price:4785.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
+  {id:'SE-HWC',     cat:'smart',   name:'SolarEdge Home Hot Water Controller',             sku:'SE-HWC',          price:2900.00,  img:'https://images.unsplash.com/photo-1558002038-1055907df8d7?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-7', cat:'battery', name:'Victron Blue Smart IP65 12V 7A Charger',        sku:'VIC-IP65-12-7A',  price:1925.60,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP22-15',cat:'battery', name:'Victron Blue Smart IP22 12V 15A Charger',       sku:'VIC-IP22-12-15A', price:2399.75,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-25',cat:'battery', name:'Victron Blue Smart IP65 12V 25A Charger',       sku:'VIC-IP65-12-25A', price:3271.20,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP65-24',cat:'battery', name:'Victron Blue Smart IP65 24V 8A Charger',        sku:'VIC-IP65-24-8A',  price:2382.35,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'VIC-IP22-24',cat:'battery', name:'Victron Blue Smart IP22 24V 16A Charger',       sku:'VIC-IP22-24-16A', price:3030.50,  img:'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-24-20',  cat:'dc',      name:'Victron Orion-Tr 24V–12V 20A DC-DC Converter',  sku:'ORI-24-12-20',    price:793.15,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-12-18',  cat:'dc',      name:'Victron Orion-Tr 12V–12V 18A Isolated DC-DC',   sku:'ORI-12-12-18',    price:2341.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'ORI-SM-30',  cat:'dc',      name:'Victron Orion-Tr Smart 12V–12V 30A DC Charger', sku:'ORI-SMART-30',    price:4699.45,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BMV-702',    cat:'dc',      name:'Victron Battery Monitor BMV-702',               sku:'BMV-702',         price:2718.75,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BMV-712',    cat:'dc',      name:'Victron Battery Monitor BMV-712 Smart',         sku:'BMV-712',         price:2740.50,  img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
+  {id:'BAL-01',     cat:'dc',      name:'Victron Battery Balancer',                       sku:'VIC-BAL',         price:916.40,   img:'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80'},
 ];
 
 const CAT_LABELS={power:'UPS & Power Stations',ev:'EV Chargers',smart:'Smart Energy',battery:'Battery Chargers',dc:'DC Accessories'};
@@ -727,6 +778,15 @@ navLinks.querySelectorAll('a').forEach(link=>{
     navLinks.classList.remove('active');
     hamburger.setAttribute('aria-expanded','false');
   });
+});
+
+/* FIX: close the mobile menu when tapping outside the navigation */
+document.addEventListener('click',function(event){
+  const clickedInsideNav=event.target.closest('.nav-inner');
+  if(!clickedInsideNav&&navLinks.classList.contains('active')){
+    navLinks.classList.remove('active');
+    hamburger.setAttribute('aria-expanded','false');
+  }
 });
 
 updateCartUI();
